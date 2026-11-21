@@ -1,15 +1,18 @@
 
 * {
     font-family: 'Figtree', sans-serif;
+    box-sizing: border-box;
 }
 
 body{
-    background-color: rgb(12, 12, 12);
-    margin: 0;
+    background-color: #08090a;
+    margin:  0px;
 }
 
+
 main, header { 
-    padding: 40px 5% 0% 5%;
+    padding: 40px 150px 0px 150px;  
+    /*  padding: 40px 5% 0% 5%;  */
 }
 
 header{
@@ -17,26 +20,27 @@ header{
     flex-direction: row;
     /* alinea paralelamente */
     justify-content: space-between; 
-     /* alinea perpendicularmente */
+    /* alinea perpendicularmente */
     align-items: center;
 
 }
 
 header img{
-    height: 50px;
+    height: 40px;
     width: auto;
 }
 
 #options{
     color: white;
     display: flex;
-    gap: 50px;
+    gap: 40px;
 }
 
 /* propiedad para seleccionar orden de hijos :nth-child */
 #options .category-option{
     border-right: 2px solid rgb(58, 58, 58);
-    width: 100px;
+    width: 90px;
+    cursor: pointer;
 }
 
 #options .category-option:nth-child(3){
@@ -46,55 +50,167 @@ header img{
 .assets-list a{
     color: white;
     text-decoration: none;
+    font-size: 18px;
 }
 
-h3{
-    color: #ffe91d
+.assets-list a:hover {
+   text-decoration: underline;
 }
 
 .assets-list{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-row-gap: 20px;
-    grid-column-gap: 15px;
+    grid-column-gap: 20px;
 }
 
+h3{
+    color: #ffe91d;
+}
+
+h5{
+    margin: 0;
+    padding: 20px 10px;
+}
 
 .assets-list .asset-container{
-    background-color: rgb(46, 46, 46);
-    /* border: 1px solid lightgray; */
-    border-radius: 5px;
-
+    border: 1px solid #252525; 
+    background-color: #15191d;
+    border-radius: 10px;
+    transition: transform 1s ease;
 }
 
- /* position: absolute; ignora la posicion orginal para aplicar la indicada con left, top, right y bottom:  */
+.asset-title-container {
+    padding: 0px 20px;      /* Ajusta el padding a tu gusto */
+    display: flex;          /* Alinea el favicon y los textos en fila */
+    align-items: center;    /* Centra verticalmente el favicon con el bloque de texto */
+    gap: 0px;              /* Espacio de separación entre el favicon y el texto */
+    
+}
 
- /* footer{
-    background-color: rgb(32, 32, 32);
-    color: lightgray; 
-    padding: 20px;
-    positiom: fixed;
-    bottom: 0;
-    width: 100%;   
-    }  */
+.asset-container:hover{
+    transform: translateY(-1.5px);
+    border: 1px solid #353535; 
+    /* animation: cardFooterTranslation 1.0s forwards; */
+}
+
+/* @keyframes cardFooterTranslation {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-1.5px);
+    }
+}   */
+
+.asset-title-container .asset-favicon {
+    width: 24px;            /* Tamaño ideal para que se vea claro */
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;     /* Suaviza las esquinas del icono */
+    flex-shrink: 0;         /* Evita que el favicon se deforme o se encoja */
+}
+
+.asset-title-container .asset-favicon.favicon-blanco {
+    background-color: #ffffff;
+    padding: 2px;
+    box-sizing: border-box; 
+    border-radius: 4px;
+}
+
+.asset-container .asset-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.asset-container .asset-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: inherit;
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    transition: transform 0.5s ease;
+}
+
+.asset-container .asset-image:hover::before {
+    transform: scale(1.08);
+}
+
+/* .asset-container .asset-image{
+    background-position: center top;
+    height: 250px;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px 10px 0px 0px;
+
+}  */
+
+/* .asset-container .asset-image{
+    background-position: center;
+    height: 250px;
+    width: auto;
+    background-size: auto 250px;
+    background-repeat: no-repeat;
+} */
+
+/* .asset-container .asset-image:hover{
+    animation: backgroundHover 0.5s forwards;
+}  */
+
+
+/*  @keyframes backgroundHover {
+    0% {
+        background-size: 100% auto;
+}
+    100% {
+        background-size: 108% auto;
+    }
+}  
+ */
+
+/* @keyframes backgroundHover {
+    0% {
+        background-size: auto 250px;
+    }
+    
+   100% {
+        background-size: auto 270px;
+    }
+} */
+
 
 .mi-footer{
-    background-color: rgb(32, 32, 32);
-    color: lightgray;
-    padding: 20px 40px;
+    background-color: #0e1011;
+    color: rgb(114, 114, 114);
+    padding: 30px 150px;
     display: flex; 
     justify-content: space-between;
     align-items: center;
+    margin-top: 40px;
 
 }
 
-.texto-footer p {
+.texto-footer span {
     margin: 0;
     font-size: 14px;
  }
 
+
 .contenedor-iconos a {
-    color: lightgray;
+    color: rgb(160, 160, 160);
     font-size: 20px;
     margin-left: 20px;
     text-decoration: none;
@@ -106,5 +222,197 @@ h3{
   }
 
 .robit{
-    color: lightgray;
+    color: rgb(160, 160, 160);
+    text-decoration: none;
+}
+
+.robit:hover{
+    color:lightgray;
+    text-decoration: underline;
+}
+
+
+#inspo1 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/2.\ Inspo/Font Meme 2.png");
+}
+
+#inspo2 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/2.\ Inspo/Typewolf.png");
+}
+
+#inspo3 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/2.\ Inspo/Fonts In Use.png");
+}
+
+#inspo4 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/2.\ Inspo/Typo Graphic Posters.png");
+}
+
+#inspo5 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/2.\ Inspo/Art Of The Title 2.png");
+}
+
+#inspo6 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/2.\ Inspo/Inspotype 2.png");
+}
+
+#inspo7 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/2.\ Inspo/Archivo Gráfico.png");
+}
+
+#inspo8 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/2.\ Inspo/Letterform Archive 2.png");
+}
+
+#inspo9 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/2.\ Inspo/Archives.Design.png");
+}
+
+
+#fonts1 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Google Fonts 3.png");
+}
+
+#fonts2 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Free Faces 2.png");
+}
+
+#fonts3 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Fontshare 2.png");
+}
+
+#fonts4 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/X Cicero.png");
+}
+
+#fonts5 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/SUVA.png");
+}
+
+#fonts6 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Fontsource.png");
+}
+
+#fonts7 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Font.Download.png");
+}
+
+#fonts8 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Online-Fonts.png");
+}
+
+#fonts9 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Uncut 2.png");
+}
+
+#fonts10 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/League of Moveable Type.png");
+}
+
+#fonts11 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Collletttivo 2.png");
+}
+
+#fonts12 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Font Library.png");
+}
+
+#fonts13 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Typothèque Esa Septantecinq.png");
+}
+
+#fonts14 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Best Free Fonts 3.png");
+}
+
+#fonts15 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/En Travaux.png");
+}
+
+#fonts16 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Republish.png");
+}
+
+#fonts17 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Tunera 2.png");
+}
+
+#fonts18 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Fonderie 2.png");
+}
+
+#fonts19 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Death of Typography.png");
+}
+
+#fonts20 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Open Foundry.png");
+}
+
+#fonts21 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Font Squirrel.png");
+}
+
+#fonts22 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Fontain.png");
+}
+
+#fonts23 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Beautiful Web Type.png");
+}
+
+#fonts24 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/1.\ Fonts/Myfffonts.png");
+}
+
+#tools1 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/BDFM 2.png");
+}
+
+#tools2 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/Type Tools.png");
+}
+
+#tools3 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/Cool Text.png");
+}
+
+#tools4 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/FontVibe 2.png");
+}
+
+#tools5 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/Glyphy 3.png");
+}
+
+#tools6 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/Tooooools 3.png");
+}
+
+#tools7 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/Space Type Generator.png");
+}
+
+#tools8 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/Effects.app.png");
+}
+
+#tools9 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/Doodle Fonts 2.png");
+}
+
+#tools10 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/Font Brief 2.png");
+}
+
+#tools11 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/Asciinator.png");
+}
+
+#tools12 .asset-container .asset-image{
+    background-image: url("IMAGENES/Sitios/3.\ Tools/Ascii Magic.png");
+}
+
+.hidden {
+    display: none;
 }
